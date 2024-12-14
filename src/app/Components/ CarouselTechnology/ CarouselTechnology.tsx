@@ -54,7 +54,7 @@ export default function CarouselTechnology() {
   return (
     <div className="h-[174px] relative flex justify-center">
       <button
-        className="custom-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg"
+        className="custom-prev-Technology absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg"
         aria-label="Previous"
       >
         <img
@@ -67,8 +67,8 @@ export default function CarouselTechnology() {
         <Swiper
           modules={[Navigation, Pagination]}
           navigation={{
-            prevEl: ".custom-prev",
-            nextEl: ".custom-next",
+            prevEl: ".custom-prev-Technology",
+            nextEl: ".custom-next-Technology",
           }}
           pagination={{ clickable: true }}
           spaceBetween={2} // Espaçamento entre os slides
@@ -92,7 +92,7 @@ export default function CarouselTechnology() {
       </div>
 
       <button
-        className="custom-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg"
+        className="custom-next-Technology absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg"
         aria-label="Next"
       >
         <img

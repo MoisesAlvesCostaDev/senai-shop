@@ -105,11 +105,11 @@ const carouselItems: ICourseCard[] = [
   },
 ];
 
-export default function CarouselCourse() {
+export default function CarouselCourse({ carrosselId }: ICarouselCourse) {
   return (
-    <div className="h-[384px] relative flex justify-center">
+    <div className="h-[394px] relative flex justify-center">
       <button
-        className="custom-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg"
+        className={`custom-prev-${carrosselId} absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg`}
         aria-label="Previous"
       >
         <img
@@ -122,8 +122,8 @@ export default function CarouselCourse() {
         <Swiper
           modules={[Navigation, Pagination]}
           navigation={{
-            prevEl: ".custom-prev",
-            nextEl: ".custom-next",
+            prevEl: `.custom-prev-${carrosselId}`,
+            nextEl: `.custom-next-${carrosselId}`,
           }}
           pagination={{ clickable: true }}
           spaceBetween={3}
@@ -148,7 +148,7 @@ export default function CarouselCourse() {
       </div>
 
       <button
-        className="custom-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg"
+        className={`custom-next-${carrosselId} absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 rounded-full shadow-lg`}
         aria-label="Next"
       >
         <img

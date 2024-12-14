@@ -9,3 +9,7 @@ interface ICourseCard {
   installmentValue: number;
   numberOfInstallments: number;
 }
+
+interface ICarouselCourse {
+  carrosselId: string;
+}
