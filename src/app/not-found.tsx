@@ -5,7 +5,7 @@ export default function NotFoundPage() {
     <div className="wrapper flex flex-col min-h-screen">
       <header className="header-content py-5 text-center">
         <img
-          src="/assets/app-logo.png"
+          src="/assets/SenaiShopLogo.png"
           alt="App Logo"
           className="logo max-w-xs mx-auto"
         />

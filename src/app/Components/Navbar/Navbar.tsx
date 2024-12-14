@@ -36,7 +36,7 @@ export default function Navbar() {
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 px-8"
       >
-        <div className="flex flex-1 items-center gap-5 lg:ml-40">
+        <div className="flex flex-1 items-center gap-5 lg:ml-20">
           <a href="/" className="-m-1.5 p-1.5 ">
             <span className="sr-only">Senai Shop</span>
             <img

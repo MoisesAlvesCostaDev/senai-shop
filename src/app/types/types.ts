@@ -13,3 +13,7 @@ interface ICourseCard {
 interface ICarouselCourse {
   carrosselId: string;
 }
+
+interface IBreadcrumb {
+  title: string;
+}
