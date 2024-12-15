@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import CourseCard from "../CourseCard/CourseCard";
 import { carouselItems } from "@/app/moks/CourseMoks";
+import { ICarouselCourse, ICourseCard } from "@/app/types/types";
 
 export default function CarouselCourse({ carrosselId }: ICarouselCourse) {
   return (

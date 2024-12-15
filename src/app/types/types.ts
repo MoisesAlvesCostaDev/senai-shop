@@ -48,3 +48,19 @@ export interface IAuthModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+export interface ICarouselItems {
+  id: number;
+  imageUrl: string;
+  title: string;
+  technology: string;
+  isEad: boolean;
+  description: string;
+  cashValue: number;
+  installmentValue: number;
+  numberOfInstallments: number;
+  workload: string;
+  offeredBy: string;
+  state: string;
+  isFavorited: boolean;
+}

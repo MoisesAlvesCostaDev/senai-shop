@@ -9,26 +9,28 @@ import AuthModal from "@/app/Components/AuthModal/AuthModal";
 import { useEffect, useState } from "react";
 import StateModal from "../StateModal/StateModal";
 import { navBarMenuItens } from "@/app/misc/navBarMenuItens";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const router = useRouter();
+
   const [isAuthModalOpen, setAuthModalOpen] = useState<boolean>(false);
   const [isStateModalOpen, setStateModalOpen] = useState<boolean>(false);
   const [userState, setUserState] = useState<string>("");
 
   useEffect(() => {
-    const data = sessionStorage.getItem("senaiShopUserState");
-    console.log(data);
-
-    if (!data) {
+    const senaiShopUserState = localStorage.getItem("senaiShopUserState");
+    if (!senaiShopUserState) {
       setStateModalOpen(true);
     } else {
-      setUserState(data);
+      setUserState(senaiShopUserState);
     }
   }, []);
 
   const handleSaveState = (state: string) => {
-    sessionStorage.setItem("senaiShopUserState", state);
+    localStorage.setItem("senaiShopUserState", state);
     setUserState(state);
+    location.reload();
   };
 
   return (

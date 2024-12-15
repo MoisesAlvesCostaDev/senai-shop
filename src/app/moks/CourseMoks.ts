@@ -1,4 +1,6 @@
-export const carouselItems = [
+import { ICarouselItems } from "../types/types";
+
+export const carouselItems: ICarouselItems[] = [
   {
     id: 1,
     imageUrl: "/assets/outhers/CarouselBanner.png",
@@ -12,12 +14,14 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "240h",
     offeredBy: "SENAI SQ",
+    state: "São Paulo (SP)",
+    isFavorited: false,
   },
   {
     id: 2,
     imageUrl: "/assets/outhers/CarouselBanner.png",
     title: "Tecnologia da Informação 2",
-    technology: "Redes de Computadores",
+    technology: "Programação",
     isEad: true,
     description:
       "Este curso aborda configuração e manutenção de redes de computadores. Aprenda desde os fundamentos até soluções avançadas, com foco na prática. Ideal para quem deseja se especializar em redes corporativas e infraestrutura de TI.",
@@ -26,6 +30,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "300h",
     offeredBy: "SENAI SC",
+    state: "São Paulo (SP)",
+    isFavorited: false,
   },
   {
     id: 3,
@@ -40,12 +46,14 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "180h",
     offeredBy: "SENAI RJ",
+    state: "Rio de Janeiro (RJ)",
+    isFavorited: false,
   },
   {
     id: 4,
     imageUrl: "/assets/outhers/Carousel.png",
     title: "Tecnologia da Informação 4",
-    technology: "Inteligência Artificial",
+    technology: "Segurança da Informação",
     isEad: true,
     description:
       "Curso introdutório sobre inteligência artificial e aprendizado de máquina. Explore algoritmos modernos, redes neurais e aplicações práticas em diferentes setores. Perfeito para iniciantes interessados em IA.",
@@ -54,6 +62,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "360h",
     offeredBy: "SENAI SP",
+    state: "São Paulo (SP)",
+    isFavorited: false,
   },
   {
     id: 5,
@@ -68,6 +78,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "200h",
     offeredBy: "SENAI MG",
+    state: "Minas Gerais (MG)",
+    isFavorited: false,
   },
   {
     id: 6,
@@ -82,6 +94,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "280h",
     offeredBy: "SENAI BA",
+    state: "Bahia (BA)",
+    isFavorited: false,
   },
   {
     id: 7,
@@ -96,6 +110,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "250h",
     offeredBy: "SENAI PE",
+    state: "Pernambuco (PE)",
+    isFavorited: false,
   },
   {
     id: 8,
@@ -110,6 +126,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "400h",
     offeredBy: "SENAI DF",
+    state: "Distrito Federal (DF)",
+    isFavorited: false,
   },
   {
     id: 9,
@@ -124,6 +142,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "320h",
     offeredBy: "SENAI GO",
+    state: "Goiás (GO)",
+    isFavorited: false,
   },
   {
     id: 10,
@@ -138,6 +158,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "400h",
     offeredBy: "SENAI RS",
+    state: "Rio Grande do Sul (RS)",
+    isFavorited: false,
   },
   {
     id: 11,
@@ -152,6 +174,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "420h",
     offeredBy: "SENAI AM",
+    state: "Amazonas (AM)",
+    isFavorited: false,
   },
   {
     id: 12,
@@ -166,6 +190,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "480h",
     offeredBy: "SENAI PR",
+    state: "Paraná (PR)",
+    isFavorited: false,
   },
   {
     id: 13,
@@ -180,6 +206,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "500h",
     offeredBy: "SENAI SC",
+    state: "Santa Catarina (SC)",
+    isFavorited: false,
   },
   {
     id: 14,
@@ -194,6 +222,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "360h",
     offeredBy: "SENAI SP",
+    state: "São Paulo (SP)",
+    isFavorited: false,
   },
   {
     id: 15,
@@ -208,6 +238,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "400h",
     offeredBy: "SENAI RS",
+    state: "Rio Grande do Sul (RS)",
+    isFavorited: false,
   },
   {
     id: 16,
@@ -222,6 +254,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "320h",
     offeredBy: "SENAI MG",
+    state: "Minas Gerais (MG)",
+    isFavorited: false,
   },
   {
     id: 17,
@@ -236,7 +270,10 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "300h",
     offeredBy: "SENAI RJ",
+    state: "Rio de Janeiro (RJ)",
+    isFavorited: false,
   },
+
   {
     id: 18,
     imageUrl: "/assets/outhers/Carousel.png",
@@ -250,6 +287,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "480h",
     offeredBy: "SENAI DF",
+    state: "Distrito Federal (DF)",
+    isFavorited: false,
   },
   {
     id: 19,
@@ -264,6 +303,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "420h",
     offeredBy: "SENAI AM",
+    state: "Amazonas (AM)",
+    isFavorited: false,
   },
   {
     id: 20,
@@ -278,6 +319,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "360h",
     offeredBy: "SENAI BA",
+    state: "Bahia (BA)",
+    isFavorited: false,
   },
   {
     id: 21,
@@ -292,6 +335,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "500h",
     offeredBy: "SENAI GO",
+    state: "Goiás (GO)",
+    isFavorited: false,
   },
   {
     id: 22,
@@ -306,6 +351,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "600h",
     offeredBy: "SENAI SP",
+    state: "São Paulo (SP)",
+    isFavorited: false,
   },
   {
     id: 23,
@@ -320,6 +367,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "360h",
     offeredBy: "SENAI PE",
+    state: "Pernambuco (PE)",
+    isFavorited: false,
   },
   {
     id: 24,
@@ -334,6 +383,8 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "480h",
     offeredBy: "SENAI MG",
+    state: "Minas Gerais (MG)",
+    isFavorited: false,
   },
   {
     id: 25,
@@ -348,5 +399,7 @@ export const carouselItems = [
     numberOfInstallments: 10,
     workload: "600h",
     offeredBy: "SENAI SC",
+    state: "Santa Catarina (SC)",
+    isFavorited: false,
   },
 ];
