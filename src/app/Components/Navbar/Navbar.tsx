@@ -5,28 +5,23 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import { PhoneIcon, PlayCircleIcon } from "@heroicons/react/20/solid";
 
 const menuItens = [
   {
     name: "Meu perfil",
     href: "#",
-    icon: "assets/navbar/UserCircle.png",
+    icon: "/assets/navbar/UserCircle.png",
   },
   {
     name: "Meus pedidos",
     href: "#",
-    icon: "assets/navbar/ShoppingBag.png",
+    icon: "/assets/navbar/ShoppingBag.png",
   },
   {
     name: "Minha lista de desejos",
     href: "#",
-    icon: "assets/navbar/Heart.png",
+    icon: "/assets/navbar/Heart.png",
   },
-];
-const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
 ];
 
 export default function Navbar() {

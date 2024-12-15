@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Navbar from "@/app/Components/Navbar/Navbar";
 import Breadcrumb from "@/app/Components/Breadcrumb/Breadcrumb";
+import CartProduct from "@/app/Components/CartProduct/CartProduct";
 
 const cartItems = [
   {
@@ -39,63 +40,29 @@ export default function CartPage() {
   return (
     <div className="bg-base-background min-h-screen">
       <Navbar />
-
       <div className="px-20 py-4">
         <Breadcrumb title="Meu Carrinho" />
-
         <h1 className="text-3xl font-baloo font-bold text-base-title mb-6">
           Produtos
         </h1>
-
         <div className="grid grid-cols-[2fr_1fr] gap-8">
           <div className="flex flex-col gap-4">
             {cartItems.map((item) => (
-              <div
+              <CartProduct
                 key={item.id}
-                className="bg-base-white rounded-lg shadow-lg p-4 flex items-center justify-between"
-              >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="w-24 h-24 rounded-full object-cover"
-                  />
-                  <div>
-                    <h2 className="text-primary-dark text-lg font-bold mb-1">
-                      {item.title}
-                    </h2>
-                    <span className="text-xs font-bold text-secondary-dark bg-secondary-light px-2 py-1 rounded-md">
-                      {item.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-base-title font-bold">
-                    12x de{" "}
-                    <span className="text-primary-dark font-baloo text-xl">
-                      R${item.installmentValue.toFixed(2)}
-                    </span>
-                  </p>
-                  <p className="text-base-title font-bold text-lg">
-                    R$ {item.totalValue.toFixed(2)}
-                  </p>
-                </div>
-                <button className="text-red-500 hover:text-red-700">
-                  <img
-                    src="/assets/cart/Trash.png"
-                    alt="Excluir"
-                    className="w-6 h-6"
-                  />
-                </button>
-              </div>
+                id={item.id}
+                imageUrl={item.imageUrl}
+                title={item.title}
+                category={item.category}
+                installmentValue={item.installmentValue}
+                totalValue={item.totalValue}
+              />
             ))}
           </div>
-
           <div className="bg-base-white rounded-lg shadow-lg p-6 h-fit">
             <h2 className="text-xl font-bold text-base-title mb-4">
               Finalizar compra
             </h2>
-
             <div className="mb-4">
               <p className="text-sm text-base-title mb-2">Forma de pagamento</p>
               <div className="flex gap-2">

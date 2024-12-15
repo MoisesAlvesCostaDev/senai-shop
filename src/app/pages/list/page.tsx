@@ -110,6 +110,8 @@ export default function ListPage() {
               <div className="grid grid-cols-3 gap-6">
                 {courses.map((course) => (
                   <CourseCard
+                    offeredBy={course.offeredBy}
+                    workload={course.workload}
                     key={course.id}
                     id={course.id}
                     imageUrl={course.imageUrl}

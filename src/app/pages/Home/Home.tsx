@@ -1,4 +1,4 @@
-import CarouselTechnology from "@/app/Components/ CarouselTechnology/ CarouselTechnology";
+import CarouselTechnology from "@/app/Components/CarouselTechnology/CarouselTechnology";
 import CarouselCourse from "@/app/Components/CarouselCourse/CarouselCourse";
 import Navbar from "@/app/Components/Navbar/Navbar";
 
