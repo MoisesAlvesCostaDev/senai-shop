@@ -5,6 +5,8 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
+import AuthModal from "@/app/Components/AuthModal/AuthModal";
+import { useState } from "react";
 
 const menuItens = [
   {
@@ -25,6 +27,7 @@ const menuItens = [
 ];
 
 export default function Navbar() {
+  const [isAuthModalOpen, setAuthModalOpen] = useState(false);
   return (
     <header className="bg-white border-b-2 border-primary mb-6">
       <nav
@@ -54,7 +57,12 @@ export default function Navbar() {
 
         <div className="flex flex-1 justify-end">
           <PopoverGroup className="flex gap-x-2">
-            <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
+            <button
+              onClick={() => {
+                setAuthModalOpen(true);
+              }}
+              className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg"
+            >
               <img
                 alt="Find"
                 src="/assets/navbar/MagnifyingGlass.png"
@@ -111,6 +119,10 @@ export default function Navbar() {
               </PopoverPanel>
             </Popover>
           </PopoverGroup>
+          <AuthModal
+            isOpen={isAuthModalOpen}
+            onClose={() => setAuthModalOpen(false)}
+          />
         </div>
       </nav>
     </header>

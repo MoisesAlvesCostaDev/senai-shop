@@ -1,4 +1,4 @@
-interface ICourseCard {
+export interface ICourseCard {
   id: number;
   imageUrl: string;
   technology: string;
@@ -12,20 +12,20 @@ interface ICourseCard {
   offeredBy: string;
 }
 
-interface ICarouselCourse {
+export interface ICarouselCourse {
   carrosselId: string;
 }
 
-interface IBreadcrumb {
+export interface IBreadcrumb {
   title: string;
 }
 
-interface ICourseModalProps extends ICourseCard {
+export interface ICourseModalProps extends ICourseCard {
   isOpen: boolean;
   onClose: () => void;
 }
 
-interface IMyOrderCard {
+export interface IMyOrderCard {
   id: number;
   imageUrl: string;
   title: string;
@@ -35,11 +35,16 @@ interface IMyOrderCard {
   totalValue: number;
 }
 
-interface ICartProductProps {
+export interface ICartProductProps {
   id: number;
   imageUrl: string;
   title: string;
   category: string;
   installmentValue: number;
   totalValue: number;
+}
+
+export interface IAuthModalProps {
+  isOpen: boolean;
+  onClose: () => void;
 }
