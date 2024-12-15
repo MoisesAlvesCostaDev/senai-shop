@@ -10,9 +10,11 @@ import { useEffect, useState } from "react";
 import StateModal from "../StateModal/StateModal";
 import { navBarMenuItens } from "@/app/misc/navBarMenuItens";
 import { useRouter } from "next/navigation";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Navbar() {
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   const [isAuthModalOpen, setAuthModalOpen] = useState<boolean>(false);
   const [isStateModalOpen, setStateModalOpen] = useState<boolean>(false);
@@ -67,12 +69,7 @@ export default function Navbar() {
 
         <div className="flex flex-1 justify-end">
           <PopoverGroup className="flex gap-x-2">
-            <button
-              onClick={() => {
-                setAuthModalOpen(true);
-              }}
-              className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg"
-            >
+            <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
               <img
                 alt="Find"
                 src="/assets/navbar/MagnifyingGlass.png"
@@ -81,53 +78,72 @@ export default function Navbar() {
             </button>
             <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
               <img
-                alt="Find"
+                alt="cart"
                 src="/assets/navbar/ShoppingCart.png"
                 className="  "
               ></img>
             </button>
 
-            <Popover className="relative">
-              <PopoverButton className="flex bg-base-hover h-12 w-12 ml-[1px] rounded-full items-center justify-center m-[-5px]">
-                <img alt="Find" src="/assets/navbar/User.png"></img>
-              </PopoverButton>
-
-              <PopoverPanel
-                transition
-                className="absolute -right-8 top-full z-10 mt-3 mb-1 w-screen max-w-48 overflow-hidden rounded-xl bg-white shadow-2xl shadow-black ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+            {!session ? (
+              <button
+                onClick={() => {
+                  setAuthModalOpen(true);
+                }}
+                className="flex bg-primary-light h-10 w-24 items-center justify-center rounded-lg gap-2"
               >
-                <div>
-                  {navBarMenuItens.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group relative flex items-center gap-x-1  ml-1 rounded-lg p-1 hover:bg-gray-50"
+                <img alt="sing" src="/assets/navbar/SignInIcon.png"></img>
+                <span className="text-primary">Entrar</span>
+              </button>
+            ) : (
+              <Popover className="relative">
+                <PopoverButton className="flex bg-base-hover h-12 w-12 ml-[1px] rounded-full items-center justify-center m-[-5px]">
+                  <img alt="User" src="/assets/navbar/User.png"></img>
+                </PopoverButton>
+
+                <PopoverPanel
+                  transition
+                  className="absolute -right-8 top-full z-10 mt-3 mb-1 w-screen max-w-48 overflow-hidden rounded-xl bg-white shadow-2xl shadow-black ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                >
+                  <div>
+                    {navBarMenuItens.map((item) => (
+                      <div
+                        key={item.name}
+                        className="group relative flex items-center gap-x-1  ml-1 rounded-lg p-1 hover:bg-gray-50"
+                      >
+                        <div className="mt-1 flex size-[18px] flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <img
+                            src={item.icon}
+                            alt={item.name}
+                            aria-hidden="true"
+                            className="size-[18px] text-gray-600 group-hover:text-indigo-600"
+                          />
+                        </div>
+                        <div className="flex-auto">
+                          <a
+                            href={item.href}
+                            className="block font-roboto text-[12px] text-base-subtitle "
+                          >
+                            {item.name}
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className=" divide-gray-900/5 bg-gray-50 mb-2 p-2 pb-0">
+                    <button
+                      className="bg-secondary w-full h-[23px] rounded-lg"
+                      onClick={() =>
+                        signOut({
+                          callbackUrl: "/",
+                        })
+                      }
                     >
-                      <div className="mt-1 flex size-[18px] flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <img
-                          src={item.icon}
-                          alt={item.name}
-                          aria-hidden="true"
-                          className="size-[18px] text-gray-600 group-hover:text-indigo-600"
-                        />
-                      </div>
-                      <div className="flex-auto">
-                        <a
-                          href={item.href}
-                          className="block font-roboto text-[12px] text-base-subtitle "
-                        >
-                          {item.name}
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className=" divide-gray-900/5 bg-gray-50 mb-2 p-2 pb-0">
-                  <button className="bg-secondary w-full h-[23px] rounded-lg">
-                    <span className="text-sm ">Sair</span>
-                  </button>
-                </div>
-              </PopoverPanel>
-            </Popover>
+                      <span className="text-sm ">Sair</span>
+                    </button>
+                  </div>
+                </PopoverPanel>
+              </Popover>
+            )}
           </PopoverGroup>
           <AuthModal
             isOpen={isAuthModalOpen}

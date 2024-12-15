@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import validationMessages from "@/app/misc/validationMessages";
 import { IAuthModalProps } from "@/app/types/types";
+import { signIn } from "next-auth/react";
 
 const loginSchema = yup.object().shape({
   email: yup
@@ -46,6 +47,7 @@ export default function AuthModal({
   onClose,
 }: Readonly<IAuthModalProps>) {
   const [isLoginForm, setIsLoginForm] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const {
     register: loginRegister,
@@ -63,7 +65,26 @@ export default function AuthModal({
     resolver: yupResolver(registerSchema),
   });
 
-  const onLoginSubmit = (data: any) => console.log("Login:", data);
+  interface ILoginData {
+    email: string;
+    password: string;
+  }
+
+  const onLoginSubmit = async (data: ILoginData) => {
+    const res = await signIn("credentials", {
+      redirect: false,
+      email: data.email,
+      password: data.password,
+    });
+
+    if (!res?.ok) {
+      setErrorMessage("Login falhou. Verifique suas credenciais.");
+    } else {
+      setErrorMessage(null); // Limpa a mensagem de erro em caso de sucesso
+      window.location.href = "/";
+    }
+  };
+
   const onRegisterSubmit = (data: any) => console.log("Register:", data);
 
   if (!isOpen) return null;
@@ -104,6 +125,10 @@ export default function AuthModal({
             <p className="text-sm text-secondary-dark">
               {loginErrors.password?.message}
             </p>
+
+            {errorMessage && (
+              <p className="text-sm text-red-500 text-center">{errorMessage}</p>
+            )}
 
             <button
               type="submit"
