@@ -6,28 +6,31 @@ import {
   PopoverPanel,
 } from "@headlessui/react";
 import AuthModal from "@/app/Components/AuthModal/AuthModal";
-import { useState } from "react";
-
-const menuItens = [
-  {
-    name: "Meu perfil",
-    href: "#",
-    icon: "/assets/navbar/UserCircle.png",
-  },
-  {
-    name: "Meus pedidos",
-    href: "#",
-    icon: "/assets/navbar/ShoppingBag.png",
-  },
-  {
-    name: "Minha lista de desejos",
-    href: "#",
-    icon: "/assets/navbar/Heart.png",
-  },
-];
+import { useEffect, useState } from "react";
+import StateModal from "../StateModal/StateModal";
+import { navBarMenuItens } from "@/app/misc/navBarMenuItens";
 
 export default function Navbar() {
-  const [isAuthModalOpen, setAuthModalOpen] = useState(false);
+  const [isAuthModalOpen, setAuthModalOpen] = useState<boolean>(false);
+  const [isStateModalOpen, setStateModalOpen] = useState<boolean>(false);
+  const [userState, setUserState] = useState<string>("");
+
+  useEffect(() => {
+    const data = sessionStorage.getItem("senaiShopUserState");
+    console.log(data);
+
+    if (!data) {
+      setStateModalOpen(true);
+    } else {
+      setUserState(data);
+    }
+  }, []);
+
+  const handleSaveState = (state: string) => {
+    sessionStorage.setItem("senaiShopUserState", state);
+    setUserState(state);
+  };
+
   return (
     <header className="bg-white border-b-2 border-primary mb-6">
       <nav
@@ -43,14 +46,19 @@ export default function Navbar() {
               className="h-14 w-auto"
             />
           </a>
-          <button className="flex bg-secondary-light h-8 rounded-[6px] p-2 items-center gap-2">
+          <button
+            onClick={() => {
+              setStateModalOpen(true);
+            }}
+            className="flex bg-secondary-light h-8 rounded-[6px] p-2 items-center gap-2"
+          >
             <img
               alt="Map pin"
               src="/assets/navbar/MapPin.png"
               className="h-5"
             ></img>
             <span className=" text-secondary-dark font-roboto text-sm">
-              Santa Catarina
+              {userState || "Selecione seu estado"}
             </span>
           </button>
         </div>
@@ -87,7 +95,7 @@ export default function Navbar() {
                 className="absolute -right-8 top-full z-10 mt-3 mb-1 w-screen max-w-48 overflow-hidden rounded-xl bg-white shadow-2xl shadow-black ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <div>
-                  {menuItens.map((item) => (
+                  {navBarMenuItens.map((item) => (
                     <div
                       key={item.name}
                       className="group relative flex items-center gap-x-1  ml-1 rounded-lg p-1 hover:bg-gray-50"
@@ -122,6 +130,11 @@ export default function Navbar() {
           <AuthModal
             isOpen={isAuthModalOpen}
             onClose={() => setAuthModalOpen(false)}
+          />
+          <StateModal
+            isOpen={isStateModalOpen}
+            onClose={() => setStateModalOpen(false)}
+            onSave={handleSaveState}
           />
         </div>
       </nav>
