@@ -8,6 +8,8 @@ interface ICourseCard {
   cashValue: number;
   installmentValue: number;
   numberOfInstallments: number;
+  workload: string;
+  offeredBy: string;
 }
 
 interface ICarouselCourse {
@@ -16,4 +18,9 @@ interface ICarouselCourse {
 
 interface IBreadcrumb {
   title: string;
+}
+
+interface ICourseModalProps extends ICourseCard {
+  isOpen: boolean;
+  onClose: () => void;
 }

@@ -45,6 +45,8 @@ export default function CarouselCourse({ carrosselId }: ICarouselCourse) {
                 cashValue={item.cashValue}
                 installmentValue={item.installmentValue}
                 numberOfInstallments={item.numberOfInstallments}
+                workload={item.workload}
+                offeredBy={item.offeredBy}
               />
             </SwiperSlide>
           ))}

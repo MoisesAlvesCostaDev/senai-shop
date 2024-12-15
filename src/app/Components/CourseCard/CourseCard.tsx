@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import CourseModal from "../CourseModal/CourseModal";
+
 export default function CourseCard({
   id,
   imageUrl,
@@ -10,7 +13,19 @@ export default function CourseCard({
   cashValue,
   installmentValue,
   numberOfInstallments,
-}: ICourseCard) {
+  workload,
+  offeredBy,
+}: Readonly<ICourseCard>) {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div
       className="w-[292px] h-[352px] bg-base-white shadow-xl rounded-lg flex flex-col border border-base-hover "
@@ -34,9 +49,12 @@ export default function CourseCard({
           )}
         </div>
 
-        <h3 className="text-primary-dark text-lg font-baloo font-bold text-center ">
+        <button
+          onClick={() => openModal()}
+          className="text-primary-dark text-lg font-baloo font-bold text-center "
+        >
           {title}
-        </h3>
+        </button>
 
         <p className="text-base-subtitle text-sm font-roboto">
           {description?.length > 123
@@ -68,6 +86,23 @@ export default function CourseCard({
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <CourseModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          imageUrl={imageUrl}
+          title={title}
+          workload={workload}
+          offeredBy={offeredBy}
+          description={description}
+          cashValue={cashValue}
+          installmentValue={installmentValue}
+          numberOfInstallments={numberOfInstallments}
+          id={id}
+          isEad={isEad}
+          technology={technology}
+        />
+      )}
     </div>
   );
 }
