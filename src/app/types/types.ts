@@ -14,6 +14,7 @@ export interface ICourseCard {
 
 export interface ICarouselCourse {
   carrosselId: string;
+  filterBy?: "isRecentlySeen" | "state" | "ead";
 }
 
 export interface IBreadcrumb {
@@ -63,4 +64,5 @@ export interface ICarouselItems {
   offeredBy: string;
   state: string;
   isFavorited: boolean;
+  isRecentlySeen: boolean;
 }

@@ -8,9 +8,71 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import CourseCard from "../CourseCard/CourseCard";
 import { carouselItems } from "@/app/moks/CourseMoks";
-import { ICarouselCourse, ICourseCard } from "@/app/types/types";
+import {
+  ICarouselCourse,
+  ICarouselItems,
+  ICourseCard,
+} from "@/app/types/types";
+import { useEffect, useState } from "react";
 
-export default function CarouselCourse({ carrosselId }: ICarouselCourse) {
+export default function CarouselCourse({
+  carrosselId,
+  filterBy,
+}: Readonly<ICarouselCourse>) {
+  const carouselMaxItensDefault = 3;
+
+  const [items, setItems] = useState<ICourseCard[]>([]);
+  const [carouselMax, setCarouselMax] = useState<number>(
+    carouselMaxItensDefault
+  );
+
+  function handleFilterData() {
+    let localCarouselItems: ICarouselItems[] = carouselItems;
+
+    if (filterBy === "state") {
+      const senaiShopUserState = localStorage.getItem("senaiShopUserState");
+      if (senaiShopUserState) {
+        localCarouselItems = localCarouselItems.filter((item) => {
+          if (item.state === senaiShopUserState) {
+            return item;
+          } else {
+            return null;
+          }
+        });
+      }
+    }
+
+    if (filterBy === "ead") {
+      localCarouselItems = localCarouselItems.filter((item) => {
+        if (item.isEad) {
+          return item;
+        } else {
+          return null;
+        }
+      });
+    }
+
+    if (filterBy === "isRecentlySeen") {
+      localCarouselItems = localCarouselItems.filter((item) => {
+        if (item.isRecentlySeen) {
+          return item;
+        } else {
+          return null;
+        }
+      });
+    }
+
+    if (localCarouselItems.length < carouselMaxItensDefault) {
+      setCarouselMax(localCarouselItems.length);
+    }
+
+    setItems(localCarouselItems);
+  }
+
+  useEffect(() => {
+    handleFilterData();
+  }, []);
+
   return (
     <div className="h-[394px] relative flex justify-center">
       <button
@@ -31,10 +93,10 @@ export default function CarouselCourse({ carrosselId }: ICarouselCourse) {
             nextEl: `.custom-next-${carrosselId}`,
           }}
           pagination={{ clickable: true }}
-          spaceBetween={3}
-          slidesPerView={3}
+          spaceBetween={120}
+          slidesPerView={carouselMax}
         >
-          {carouselItems.map((item: ICourseCard) => (
+          {items?.map((item: ICourseCard) => (
             <SwiperSlide key={item.id}>
               <CourseCard
                 id={item.id}

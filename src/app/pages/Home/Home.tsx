@@ -14,7 +14,7 @@ export default function HomePage() {
         <h2 className="font-baloo text-3xl text-base-title font-bold mb-7 mt-7">
           Cursos vistos recentemente
         </h2>
-        <CarouselCourse carrosselId={"1"} />
+        <CarouselCourse carrosselId={"1"} filterBy="isRecentlySeen" />
         <div className="flex items-center">
           <h2 className="font-baloo flex-1 text-3xl text-base-title font-bold mb-7 mt-7">
             Cursos da sua região
@@ -29,7 +29,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <CarouselCourse carrosselId={"2"} />
+        <CarouselCourse carrosselId={"2"} filterBy="state" />
         <div className="flex items-center">
           <h2 className="font-baloo flex-1 text-3xl text-base-title font-bold mb-7 mt-7">
             Cursos EAD
@@ -43,7 +43,7 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-        <CarouselCourse carrosselId={"3"} />
+        <CarouselCourse carrosselId={"3"} filterBy="ead" />
       </div>
     </div>
   );

@@ -13,9 +13,10 @@ export const carouselItems: ICarouselItems[] = [
     installmentValue: 12.5,
     numberOfInstallments: 10,
     workload: "240h",
-    offeredBy: "SENAI SQ",
+    offeredBy: "SENAI SP",
     state: "São Paulo (SP)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 2,
@@ -29,9 +30,10 @@ export const carouselItems: ICarouselItems[] = [
     installmentValue: 20.0,
     numberOfInstallments: 10,
     workload: "300h",
-    offeredBy: "SENAI SC",
+    offeredBy: "SENAI SP",
     state: "São Paulo (SP)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 3,
@@ -48,6 +50,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI RJ",
     state: "Rio de Janeiro (RJ)",
     isFavorited: false,
+    isRecentlySeen: true,
   },
   {
     id: 4,
@@ -64,6 +67,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI SP",
     state: "São Paulo (SP)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 5,
@@ -80,6 +84,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI MG",
     state: "Minas Gerais (MG)",
     isFavorited: false,
+    isRecentlySeen: true,
   },
   {
     id: 6,
@@ -96,6 +101,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI BA",
     state: "Bahia (BA)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 7,
@@ -112,6 +118,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI PE",
     state: "Pernambuco (PE)",
     isFavorited: false,
+    isRecentlySeen: true,
   },
   {
     id: 8,
@@ -128,6 +135,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI DF",
     state: "Distrito Federal (DF)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 9,
@@ -144,6 +152,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI GO",
     state: "Goiás (GO)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 10,
@@ -160,6 +169,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI RS",
     state: "Rio Grande do Sul (RS)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 11,
@@ -176,6 +186,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI AM",
     state: "Amazonas (AM)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 12,
@@ -192,6 +203,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI PR",
     state: "Paraná (PR)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 13,
@@ -208,6 +220,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI SC",
     state: "Santa Catarina (SC)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 14,
@@ -224,6 +237,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI SP",
     state: "São Paulo (SP)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 15,
@@ -240,6 +254,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI RS",
     state: "Rio Grande do Sul (RS)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 16,
@@ -256,6 +271,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI MG",
     state: "Minas Gerais (MG)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 17,
@@ -272,6 +288,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI RJ",
     state: "Rio de Janeiro (RJ)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
 
   {
@@ -289,6 +306,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI DF",
     state: "Distrito Federal (DF)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 19,
@@ -305,6 +323,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI AM",
     state: "Amazonas (AM)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 20,
@@ -321,6 +340,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI BA",
     state: "Bahia (BA)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 21,
@@ -337,6 +357,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI GO",
     state: "Goiás (GO)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 22,
@@ -353,6 +374,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI SP",
     state: "São Paulo (SP)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 23,
@@ -369,6 +391,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI PE",
     state: "Pernambuco (PE)",
     isFavorited: false,
+    isRecentlySeen: true,
   },
   {
     id: 24,
@@ -385,6 +408,7 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI MG",
     state: "Minas Gerais (MG)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
   {
     id: 25,
@@ -401,5 +425,6 @@ export const carouselItems: ICarouselItems[] = [
     offeredBy: "SENAI SC",
     state: "Santa Catarina (SC)",
     isFavorited: false,
+    isRecentlySeen: false,
   },
 ];
