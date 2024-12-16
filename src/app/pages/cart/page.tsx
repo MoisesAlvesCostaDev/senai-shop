@@ -8,7 +8,7 @@ import CartProduct from "@/app/Components/CartProduct/CartProduct";
 const cartItems = [
   {
     id: 1,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/1.webp",
     title: "Programação em TypeScript",
     category: "TECNOLOGIA DA INFORMAÇÃO",
     installmentValue: 80.0,
@@ -16,7 +16,7 @@ const cartItems = [
   },
   {
     id: 2,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/2.webp",
     title: "Redes de Computadores",
     category: "TECNOLOGIA DA INFORMAÇÃO",
     installmentValue: 70.0,
@@ -24,7 +24,7 @@ const cartItems = [
   },
   {
     id: 3,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/3.webp",
     title: "Segurança da Informação",
     category: "TECNOLOGIA DA INFORMAÇÃO",
     installmentValue: 85.0,

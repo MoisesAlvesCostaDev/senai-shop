@@ -3,7 +3,7 @@ import { ICarouselItems } from "../types/types";
 export const carouselItems: ICarouselItems[] = [
   {
     id: 1,
-    imageUrl: "/assets/outhers/CarouselBanner.png",
+    imageUrl: "/assets/outhers/moks/1.webp",
     title: "Tecnologia da Informação 1",
     technology: "Programação",
     isEad: true,
@@ -20,7 +20,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 2,
-    imageUrl: "/assets/outhers/CarouselBanner.png",
+    imageUrl: "/assets/outhers/moks/2.webp",
     title: "Tecnologia da Informação 2",
     technology: "Programação",
     isEad: true,
@@ -37,7 +37,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 3,
-    imageUrl: "/assets/outhers/CarouselBanner.png",
+    imageUrl: "/assets/outhers/moks/3.webp",
     title: "Tecnologia da Informação 3",
     technology: "Segurança da Informação",
     isEad: false,
@@ -54,7 +54,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 4,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/4.webp",
     title: "Tecnologia da Informação 4",
     technology: "Segurança da Informação",
     isEad: true,
@@ -71,7 +71,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 5,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/5.webp",
     title: "Tecnologia da Informação 5",
     technology: "Desenvolvimento Web",
     isEad: false,
@@ -88,7 +88,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 6,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/6.webp",
     title: "Tecnologia da Informação 6",
     technology: "Desenvolvimento Mobile",
     isEad: true,
@@ -105,7 +105,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 7,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/7.webp",
     title: "Tecnologia da Informação 7",
     technology: "Banco de Dados",
     isEad: false,
@@ -122,7 +122,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 8,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/8.webp",
     title: "Tecnologia da Informação 8",
     technology: "Big Data",
     isEad: true,
@@ -139,7 +139,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 9,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/9.webp",
     title: "Tecnologia da Informação 9",
     technology: "Machine Learning",
     isEad: true,
@@ -156,7 +156,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 10,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/10.webp",
     title: "Tecnologia da Informação 10",
     technology: "Engenharia de Software",
     isEad: false,
@@ -173,7 +173,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 11,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/1.webp",
     title: "Tecnologia da Informação 11",
     technology: "Cloud Computing",
     isEad: true,
@@ -190,7 +190,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 12,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/2.webp",
     title: "Tecnologia da Informação 12",
     technology: "IoT (Internet das Coisas)",
     isEad: true,
@@ -207,7 +207,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 13,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/3.webp",
     title: "Tecnologia da Informação 13",
     technology: "Cybersecurity",
     isEad: true,
@@ -224,7 +224,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 14,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/4.webp",
     title: "Tecnologia da Informação 14",
     technology: "Análise de Dados",
     isEad: true,
@@ -241,7 +241,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 15,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/5.webp",
     title: "Tecnologia da Informação 15",
     technology: "DevOps",
     isEad: false,
@@ -258,7 +258,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 16,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/6.webp",
     title: "Tecnologia da Informação 16",
     technology: "Automação de Processos",
     isEad: true,
@@ -275,7 +275,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 17,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/7.webp",
     title: "Tecnologia da Informação 17",
     technology: "Design UX/UI",
     isEad: true,
@@ -293,7 +293,7 @@ export const carouselItems: ICarouselItems[] = [
 
   {
     id: 18,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/8.webp",
     title: "Tecnologia da Informação 18",
     technology: "Blockchain",
     isEad: false,
@@ -310,7 +310,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 19,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/9.webp",
     title: "Tecnologia da Informação 19",
     technology: "Realidade Aumentada e Virtual",
     isEad: true,
@@ -327,7 +327,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 20,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/10.webp",
     title: "Tecnologia da Informação 20",
     technology: "Redes Neurais",
     isEad: true,
@@ -344,7 +344,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 21,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/1.webp",
     title: "Tecnologia da Informação 21",
     technology: "Engenharia de Dados",
     isEad: false,
@@ -361,7 +361,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 22,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/2.webp",
     title: "Tecnologia da Informação 22",
     technology: "Robótica",
     isEad: false,
@@ -378,7 +378,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 23,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/3.webp",
     title: "Tecnologia da Informação 23",
     technology: "Virtualização de Sistemas",
     isEad: true,
@@ -395,7 +395,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 24,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/4.webp",
     title: "Tecnologia da Informação 24",
     technology: "Game Development",
     isEad: true,
@@ -412,7 +412,7 @@ export const carouselItems: ICarouselItems[] = [
   },
   {
     id: 25,
-    imageUrl: "/assets/outhers/Carousel.png",
+    imageUrl: "/assets/outhers/moks/5.webp",
     title: "Tecnologia da Informação 25",
     technology: "Automação Industrial",
     isEad: false,
