@@ -6,7 +6,7 @@ export const navBarMenuItens = [
   },
   {
     name: "Meus pedidos",
-    href: "#",
+    href: "/pages/myorders",
     icon: "/assets/navbar/ShoppingBag.png",
   },
   {

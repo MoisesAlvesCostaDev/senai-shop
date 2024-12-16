@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Baloo_2 } from "next/font/google";
 import "./globals.css";
+import { NextAuthProvider } from "@/app/providers/NextAuthProvider";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${roboto.variable} ${baloo.variable} antialiased`}>
-        {children}
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );

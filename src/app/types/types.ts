@@ -14,6 +14,7 @@ export interface ICourseCard {
 
 export interface ICarouselCourse {
   carrosselId: string;
+  filterBy?: "isRecentlySeen" | "state" | "ead";
 }
 
 export interface IBreadcrumb {
@@ -47,4 +48,25 @@ export interface ICartProductProps {
 export interface IAuthModalProps {
   isOpen: boolean;
   onClose: () => void;
+}
+
+export interface ICarouselItems {
+  id: number;
+  imageUrl: string;
+  title: string;
+  technology: string;
+  isEad: boolean;
+  description: string;
+  cashValue: number;
+  installmentValue: number;
+  numberOfInstallments: number;
+  workload: string;
+  offeredBy: string;
+  state: string;
+  isFavorited: boolean;
+  isRecentlySeen: boolean;
+}
+
+export interface INavBarType {
+  type: "inputSearch" | "buttonSearch";
 }

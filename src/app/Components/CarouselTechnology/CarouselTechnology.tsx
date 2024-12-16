@@ -6,51 +6,64 @@ import "swiper/css/pagination";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { carouselItems } from "@/app/moks/CourseMoks";
+import { useEffect, useState } from "react";
+import { ICarouselItems } from "@/app/types/types";
 
-const carouselItems = [
-  {
-    id: 1,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 1",
-  },
-  {
-    id: 2,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 2",
-  },
-  {
-    id: 3,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 3",
-  },
-  {
-    id: 4,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 4",
-  },
-  {
-    id: 5,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 5",
-  },
-  {
-    id: 6,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 6",
-  },
-  {
-    id: 7,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 7",
-  },
-  {
-    id: 8,
-    imageUrl: "/assets/outhers/Carousel.png",
-    title: "Tecnologia da Informação 8",
-  },
-];
+interface Ilist {
+  id: number;
+  imageUrl: string;
+  technology: string;
+}
 
 export default function CarouselTechnology() {
+  const carouselMaxItensDefault = 6;
+  const [list, setList] = useState<Ilist[]>([]);
+  const [carouselMax, setCarouselMax] = useState<number>(
+    carouselMaxItensDefault
+  );
+
+  function handleFilterTecnologies() {
+    const uniqueTechnologies: Set<string> = new Set();
+    const uniqueList: Ilist[] = [];
+    const senaiShopUserState = localStorage.getItem("senaiShopUserState");
+
+    let localCarouselItems: ICarouselItems[];
+
+    if (senaiShopUserState) {
+      localCarouselItems = carouselItems.filter((item) => {
+        if (item.state === senaiShopUserState) {
+          return item;
+        } else {
+          return null;
+        }
+      });
+    } else {
+      localCarouselItems = carouselItems;
+    }
+
+    localCarouselItems.forEach((item) => {
+      if (!uniqueTechnologies.has(item.technology)) {
+        uniqueTechnologies.add(item.technology);
+        uniqueList.push({
+          id: item.id,
+          imageUrl: item.imageUrl,
+          technology: item.technology,
+        });
+      }
+    });
+
+    if (uniqueList.length < carouselMaxItensDefault) {
+      setCarouselMax(uniqueList.length);
+    }
+
+    setList(uniqueList);
+  }
+
+  useEffect(() => {
+    handleFilterTecnologies();
+  }, []);
+
   return (
     <div className="h-[174px] relative flex justify-center">
       <button
@@ -71,21 +84,24 @@ export default function CarouselTechnology() {
             nextEl: ".custom-next-Technology",
           }}
           pagination={{ clickable: true }}
-          spaceBetween={2} // Espaçamento entre os slides
-          slidesPerView={6} // Ajuste automático do tamanho dos slides
+          spaceBetween={120}
+          slidesPerView={carouselMax}
         >
-          {carouselItems.map((item) => (
+          {list.map((item) => (
             <SwiperSlide key={item.id}>
-              <div className="text-center w-[150px]">
+              <a
+                href={`/pages/list?technology=${item.technology}`}
+                className="text-center w-[150px]"
+              >
                 <img
                   src={item.imageUrl}
-                  alt={item.title}
+                  alt={item.technology}
                   className="w-20 h-20 rounded-full mx-auto"
                 />
                 <p className="mt-3 font-roboto text-[16px] font-bold text-base-subtitle h-[100px]">
-                  {item.title}
+                  {item.technology}
                 </p>
-              </div>
+              </a>
             </SwiperSlide>
           ))}
         </Swiper>

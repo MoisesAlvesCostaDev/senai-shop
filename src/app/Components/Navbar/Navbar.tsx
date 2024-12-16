@@ -9,35 +9,38 @@ import AuthModal from "@/app/Components/AuthModal/AuthModal";
 import { useEffect, useState } from "react";
 import StateModal from "../StateModal/StateModal";
 import { navBarMenuItens } from "@/app/misc/navBarMenuItens";
+import { useSession, signOut } from "next-auth/react";
+import { INavBarType } from "@/app/types/types";
 
-export default function Navbar() {
+export default function Navbar({ type }: Readonly<INavBarType>) {
+  const { data: session } = useSession();
+
   const [isAuthModalOpen, setAuthModalOpen] = useState<boolean>(false);
   const [isStateModalOpen, setStateModalOpen] = useState<boolean>(false);
   const [userState, setUserState] = useState<string>("");
 
   useEffect(() => {
-    const data = sessionStorage.getItem("senaiShopUserState");
-    console.log(data);
-
-    if (!data) {
+    const senaiShopUserState = localStorage.getItem("senaiShopUserState");
+    if (!senaiShopUserState) {
       setStateModalOpen(true);
     } else {
-      setUserState(data);
+      setUserState(senaiShopUserState);
     }
   }, []);
 
   const handleSaveState = (state: string) => {
-    sessionStorage.setItem("senaiShopUserState", state);
+    localStorage.setItem("senaiShopUserState", state);
     setUserState(state);
+    location.reload();
   };
 
   return (
-    <header className="bg-white border-b-2 border-primary mb-6">
+    <header className="bg-white border-b-2 border-primary mb-6 ">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 px-8"
+        className="flex items-center justify-between p-6 mx-20 "
       >
-        <div className="flex flex-1 items-center gap-5 lg:ml-20">
+        <div className="flex flex-1 items-center gap-5">
           <a href="/" className="-m-1.5 p-1.5 ">
             <span className="sr-only">Senai Shop</span>
             <img
@@ -65,67 +68,89 @@ export default function Navbar() {
 
         <div className="flex flex-1 justify-end">
           <PopoverGroup className="flex gap-x-2">
-            <button
-              onClick={() => {
-                setAuthModalOpen(true);
-              }}
+            {type === "inputSearch" ? (
+              <input
+                type="text"
+                placeholder="O que deseja buscar?"
+                className="border px-3 py-2 rounded-lg bg-base-input text-base-text placeholder-base-label "
+              />
+            ) : (
+              <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
+                <img
+                  alt="Find"
+                  src="/assets/navbar/MagnifyingGlass.png"
+                  className="  "
+                ></img>
+              </button>
+            )}
+
+            <a
+              href="/pages/cart"
               className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg"
             >
-              <img
-                alt="Find"
-                src="/assets/navbar/MagnifyingGlass.png"
-                className="  "
-              ></img>
-            </button>
-            <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
-              <img
-                alt="Find"
-                src="/assets/navbar/ShoppingCart.png"
-                className="  "
-              ></img>
-            </button>
+              <img alt="cart" src="/assets/navbar/ShoppingCart.png"></img>
+            </a>
 
-            <Popover className="relative">
-              <PopoverButton className="flex bg-base-hover h-12 w-12 ml-[1px] rounded-full items-center justify-center m-[-5px]">
-                <img alt="Find" src="/assets/navbar/User.png"></img>
-              </PopoverButton>
-
-              <PopoverPanel
-                transition
-                className="absolute -right-8 top-full z-10 mt-3 mb-1 w-screen max-w-48 overflow-hidden rounded-xl bg-white shadow-2xl shadow-black ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+            {!session ? (
+              <button
+                onClick={() => {
+                  setAuthModalOpen(true);
+                }}
+                className="flex bg-primary-light h-10 w-24 items-center justify-center rounded-lg gap-2"
               >
-                <div>
-                  {navBarMenuItens.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group relative flex items-center gap-x-1  ml-1 rounded-lg p-1 hover:bg-gray-50"
+                <img alt="sing" src="/assets/navbar/SignInIcon.png"></img>
+                <span className="text-primary">Entrar</span>
+              </button>
+            ) : (
+              <Popover className="relative">
+                <PopoverButton className="flex bg-base-hover h-12 w-12 ml-[1px] rounded-full items-center justify-center m-[-5px]">
+                  <img alt="User" src="/assets/navbar/User.png"></img>
+                </PopoverButton>
+
+                <PopoverPanel
+                  transition
+                  className="absolute -right-8 top-full z-10 mt-3 mb-1 w-screen max-w-48 overflow-hidden rounded-xl bg-white shadow-2xl shadow-black ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                >
+                  <div>
+                    {navBarMenuItens.map((item) => (
+                      <div
+                        key={item.name}
+                        className="group relative flex items-center gap-x-1  ml-1 rounded-lg p-1 hover:bg-gray-50"
+                      >
+                        <div className="mt-1 flex size-[18px] flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                          <img
+                            src={item.icon}
+                            alt={item.name}
+                            aria-hidden="true"
+                            className="size-[18px] text-gray-600 group-hover:text-indigo-600"
+                          />
+                        </div>
+                        <div className="flex-auto">
+                          <a
+                            href={item.href}
+                            className="block font-roboto text-[12px] text-base-subtitle "
+                          >
+                            {item.name}
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className=" divide-gray-900/5 bg-gray-50 mb-2 p-2 pb-0">
+                    <button
+                      className="bg-secondary w-full h-[23px] rounded-lg"
+                      onClick={() =>
+                        signOut({
+                          callbackUrl: "/",
+                        })
+                      }
                     >
-                      <div className="mt-1 flex size-[18px] flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <img
-                          src={item.icon}
-                          alt={item.name}
-                          aria-hidden="true"
-                          className="size-[18px] text-gray-600 group-hover:text-indigo-600"
-                        />
-                      </div>
-                      <div className="flex-auto">
-                        <a
-                          href={item.href}
-                          className="block font-roboto text-[12px] text-base-subtitle "
-                        >
-                          {item.name}
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className=" divide-gray-900/5 bg-gray-50 mb-2 p-2 pb-0">
-                  <button className="bg-secondary w-full h-[23px] rounded-lg">
-                    <span className="text-sm ">Sair</span>
-                  </button>
-                </div>
-              </PopoverPanel>
-            </Popover>
+                      <span className="text-sm ">Sair</span>
+                    </button>
+                  </div>
+                </PopoverPanel>
+              </Popover>
+            )}
           </PopoverGroup>
           <AuthModal
             isOpen={isAuthModalOpen}
