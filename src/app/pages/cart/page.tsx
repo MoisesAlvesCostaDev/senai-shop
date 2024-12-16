@@ -4,33 +4,7 @@ import { useState } from "react";
 import Navbar from "@/app/Components/Navbar/Navbar";
 import Breadcrumb from "@/app/Components/Breadcrumb/Breadcrumb";
 import CartProduct from "@/app/Components/CartProduct/CartProduct";
-
-const cartItems = [
-  {
-    id: 1,
-    imageUrl: "/assets/outhers/moks/1.webp",
-    title: "Programação em TypeScript",
-    category: "TECNOLOGIA DA INFORMAÇÃO",
-    installmentValue: 80.0,
-    totalValue: 960.0,
-  },
-  {
-    id: 2,
-    imageUrl: "/assets/outhers/moks/2.webp",
-    title: "Redes de Computadores",
-    category: "TECNOLOGIA DA INFORMAÇÃO",
-    installmentValue: 70.0,
-    totalValue: 840.0,
-  },
-  {
-    id: 3,
-    imageUrl: "/assets/outhers/moks/3.webp",
-    title: "Segurança da Informação",
-    category: "TECNOLOGIA DA INFORMAÇÃO",
-    installmentValue: 85.0,
-    totalValue: 1020.0,
-  },
-];
+import { cartItems } from "@/app/moks/cartItemsMock";
 
 export default function CartPage() {
   const [paymentMethod, setPaymentMethod] = useState<"credit" | "debit" | null>(
@@ -39,7 +13,7 @@ export default function CartPage() {
 
   return (
     <div className="bg-base-background min-h-screen">
-      <Navbar />
+      <Navbar type="buttonSearch" />
       <div className="px-20 py-4">
         <Breadcrumb title="Meu Carrinho" />
         <h1 className="text-3xl font-baloo font-bold text-base-title mb-6">

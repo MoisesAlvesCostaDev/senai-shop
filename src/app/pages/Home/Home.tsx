@@ -5,7 +5,7 @@ import Navbar from "@/app/Components/Navbar/Navbar";
 export default function HomePage() {
   return (
     <div className=" bg-base-background min-h-screen ">
-      <Navbar />
+      <Navbar type="inputSearch" />
       <div className=" pr-20 pl-20">
         <h2 className="font-baloo text-3xl text-base-title font-bold mb-7">
           Navegue por Áreas Tecnológicas

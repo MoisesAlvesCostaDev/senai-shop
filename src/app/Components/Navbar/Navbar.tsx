@@ -9,10 +9,10 @@ import AuthModal from "@/app/Components/AuthModal/AuthModal";
 import { useEffect, useState } from "react";
 import StateModal from "../StateModal/StateModal";
 import { navBarMenuItens } from "@/app/misc/navBarMenuItens";
-import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
+import { INavBarType } from "@/app/types/types";
 
-export default function Navbar() {
+export default function Navbar({ type }: Readonly<INavBarType>) {
   const { data: session } = useSession();
 
   const [isAuthModalOpen, setAuthModalOpen] = useState<boolean>(false);
@@ -35,10 +35,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-white border-b-2 border-primary mb-6">
+    <header className="bg-white border-b-2 border-primary mb-6 ">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 px-8"
+        className="flex items-center justify-between p-6 mx-20 "
       >
         <div className="flex flex-1 items-center gap-5">
           <a href="/" className="-m-1.5 p-1.5 ">
@@ -68,20 +68,28 @@ export default function Navbar() {
 
         <div className="flex flex-1 justify-end">
           <PopoverGroup className="flex gap-x-2">
-            <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
-              <img
-                alt="Find"
-                src="/assets/navbar/MagnifyingGlass.png"
-                className="  "
-              ></img>
-            </button>
-            <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
-              <img
-                alt="cart"
-                src="/assets/navbar/ShoppingCart.png"
-                className="  "
-              ></img>
-            </button>
+            {type === "inputSearch" ? (
+              <input
+                type="text"
+                placeholder="O que deseja buscar?"
+                className="border px-3 py-2 rounded-lg bg-base-input text-base-text placeholder-base-label "
+              />
+            ) : (
+              <button className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg">
+                <img
+                  alt="Find"
+                  src="/assets/navbar/MagnifyingGlass.png"
+                  className="  "
+                ></img>
+              </button>
+            )}
+
+            <a
+              href="/pages/cart"
+              className="flex bg-primary-light h-10 w-10 items-center justify-center rounded-lg"
+            >
+              <img alt="cart" src="/assets/navbar/ShoppingCart.png"></img>
+            </a>
 
             {!session ? (
               <button

@@ -66,3 +66,7 @@ export interface ICarouselItems {
   isFavorited: boolean;
   isRecentlySeen: boolean;
 }
+
+export interface INavBarType {
+  type: "inputSearch" | "buttonSearch";
+}

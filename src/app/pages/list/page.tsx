@@ -23,7 +23,7 @@ export default function ListPage() {
 
   const router = useRouter();
   const timeToFetchMoreDataInMilliseconds = 500;
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState<ICarouselItems[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [tecnologiesAvailable, setTecnologiesAvailable] = useState<Ilist[]>([]);
@@ -122,7 +122,7 @@ export default function ListPage() {
 
   return (
     <div className="bg-base-background min-h-screen">
-      <Navbar />
+      <Navbar type="buttonSearch" />
 
       <div className=" pr-20 pl-20">
         <Breadcrumb title="Listagem de Cursos" />
